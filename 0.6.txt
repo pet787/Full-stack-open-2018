@@ -1,0 +1,16 @@
+kayttaja->selain:
+note left of selain
+kayttaja kirjoittaa tekstiä ja klikkaa talleta
+end note
+note left of selain
+selain alkaa ajaa spa.js JavaScriptiä
+end note
+selain->palvelin: POST fullstack-exampleapp.herokuapp.com/new_note_spa
+note left of palvelin
+  palvelin lisää POSTin mukana tulleen JSON-tietueen tietokantaan
+end note
+palvelin->selain: status 201 created
+note left of selain
+ selain lisää uuden muistiinpanon listaan
+ ja renderoi sivun uudestaan kayttajalle
+end note

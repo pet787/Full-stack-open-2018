@@ -1,0 +1,27 @@
+kayttaja->selain:
+note left of selain
+kayttaja kirjoittaa tekstiä ja klikkaa talleta
+end note
+selain->palvelin: POST fullstack-exampleapp.herokuapp.com/new_note
+note left of palvelin
+  palvelin lisää uuden tekstin tietokantaan
+end note
+palvelin->selain: status 302, redirect /notes
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/notes
+note left of palvelin
+  muodostetaan HTML
+end note
+palvelin->selain: status 200, sivun HTML-koodi
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.css
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.js
+palvelin->selain: status 200, main.css
+palvelin->selain: status 200, main.js
+note left of selain
+ selain alkaa ajaa main.js JavaScriptiä
+end note
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/data.json
+palvelin->selain: status 200, data.json
+note left of selain
+ selain renderoi sivun kayttajalle
+end note
